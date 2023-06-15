@@ -1,12 +1,13 @@
 import type { GetServerSidePropsContext, InferGetServerSidePropsType } from 'next'
 
+import { toast } from 'react-toastify'
+import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import { FcGoogle } from 'react-icons/fc'
 import { getServerSession } from 'next-auth'
 import { getProviders, signIn, useSession } from 'next-auth/react'
 
 import { authOptions } from '@/pages/api/auth/[...nextauth]'
-import { useRouter } from 'next/router'
 
 export default function Login({ providers }: InferGetServerSidePropsType<typeof getServerSideProps>) {
 
@@ -21,12 +22,12 @@ export default function Login({ providers }: InferGetServerSidePropsType<typeof 
     }, [session])
 
     const credentialSignIn = () => {
-        signIn('credentials', { email, password })
+        toast.error('Please use Google!')
     }
 
     return (
-        <div className='hero min-h-screen bg-base-200'>
-            <div className='card rounded-lg flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100'>
+        <div className='hero h-screen lg:bg-base-200'>
+            <div className='card lg:rounded-lg flex-shrink-0 w-full max-w-md lg:shadow-2xl bg-base-100'>
                 <div className='card-body'>
                     <h1 className='my-6 w-full text-5xl text-center uppercase'>Login</h1>
                     <div className='form-control'>

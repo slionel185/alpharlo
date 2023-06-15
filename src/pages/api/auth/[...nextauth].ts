@@ -1,6 +1,7 @@
 import type { NextAuthOptions } from 'next-auth'
 import type { Adapter } from 'next-auth/adapters'
 
+import bcrypt from 'bcrypt'
 import NextAuth from 'next-auth/next'
 import { PrismaAdapter } from '@auth/prisma-adapter'
 import GoogleProvider from 'next-auth/providers/google'
@@ -15,27 +16,6 @@ export const authOptions: NextAuthOptions = {
         GoogleProvider({
             clientId: env.GOOGLE_CLIENT_ID,
             clientSecret: env.GOOGLE_CLIENT_SECRET
-        }),
-        CredentialsProvider({
-            credentials: {
-                email: { label: 'email', type: 'email' },
-                password: { label: 'password', type: 'password' }
-            },
-            async authorize(credentials, req) {
-                if(!credentials?.email || !credentials?.password) return null 
-
-                const user = await prisma.user.findFirst({
-                    where: {
-                        email: {
-                            equals: credentials?.email,
-                            mode: 'insensitive'
-                        }
-                    }
-                })
-
-                if(user) return user
-                return null
-            }
         })
     ],
     callbacks: {
