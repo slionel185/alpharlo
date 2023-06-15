@@ -6,7 +6,7 @@ export default function UnderConstruction() {
         <div className='h-screen hero bg-base-200'>
             <div className='hero-content text-center'>
                 <div className='max-w-sm'>
-                    <h1 className='text-6xl'>Alpha RLO</h1>
+                    <h1 className='text-6xl'>Alpha RLO Fitness</h1>
                     <h1 className='text-3xl'>Richard Logan</h1>
                     <p className='pt-6 text-xl'>Looking for training?</p>
                     <p className='pb-6'>Find me at The Edge Christiana!</p>
