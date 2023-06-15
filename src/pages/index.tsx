@@ -15,7 +15,7 @@ export default function Home() {
         if(session.status === 'authenticated') router.push('/dashboard')
     }, [session])
 
-    if(env.NEXT_PUBLIC_UNDER_CONSTRUCTION) return <UnderConstruction />
+    if(env.NEXT_PUBLIC_UNDER_CONSTRUCTION === 'true') return <UnderConstruction />
 
     return (
         <div>

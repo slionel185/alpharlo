@@ -3,7 +3,7 @@ import { createEnv } from '@t3-oss/env-nextjs'
 
 export const env = createEnv({
     client: {
-        NEXT_PUBLIC_UNDER_CONSTRUCTION: z.boolean()
+        NEXT_PUBLIC_UNDER_CONSTRUCTION: z.enum(['true', 'false'])
     },
     server: {
         NODE_ENV: z.enum(['development', 'test', 'production']),
