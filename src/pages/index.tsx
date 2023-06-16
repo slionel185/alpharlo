@@ -3,7 +3,6 @@ import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { useSession } from 'next-auth/react'
 
-import { env } from '@/utilities/env'
 import UnderConstruction from '@/components/UnderConstruction'
 
 export default function Home() {
@@ -15,7 +14,7 @@ export default function Home() {
         if(session.status === 'authenticated') router.push('/dashboard')
     }, [session])
 
-    if(env.NEXT_PUBLIC_UNDER_CONSTRUCTION === 'true') return <UnderConstruction />
+    if(true) return <UnderConstruction />
 
     return (
         <div>
